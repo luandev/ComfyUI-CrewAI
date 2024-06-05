@@ -1,4 +1,7 @@
-class AgentList:
+from .base_node import BaseNode
+
+
+class AgentList(BaseNode):
     @classmethod
     def INPUT_TYPES(cls):
         # Generate a dictionary for up to n agents dynamically
@@ -11,7 +14,6 @@ class AgentList:
     OUTPUT_IS_LIST = (True,)
     RETURN_TYPES = ("AGENT",)
     FUNCTION = "create_list"
-    CATEGORY = "📎CrewAi"
 
     def create_list(self, **kwargs):
         agents = []

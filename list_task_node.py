@@ -1,6 +1,7 @@
+from .base_node import BaseNode
 from crewai import Crew, Process
 
-class TaskList:
+class TaskList(BaseNode):
     @classmethod
     def INPUT_TYPES(s):
         # Generate a dictionary for up to n agents dynamically
@@ -14,7 +15,6 @@ class TaskList:
     OUTPUT_IS_LIST = (True,)
     RETURN_TYPES = ("TASK",)
     FUNCTION = "create_list"
-    CATEGORY = "📎CrewAi"
 
     def create_list(self, **kwargs):
         task = []

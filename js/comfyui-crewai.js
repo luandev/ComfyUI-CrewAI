@@ -4,7 +4,7 @@ app.registerExtension({
     name: "Comfy.CrewAI",
     async beforeRegisterNodeDef(nodeType, nodeData, app) {
         nodeType.prototype.onNodeCreated = function () {
-            if (this.type.startsWith("CrewAI")) {
+            if (this.type.startsWith("📎CrewAI")) {
                 
                 this.onConnectionsChange = (type, index, connected, linkInfo, ioSlot) => {
                     console.log(`\n\n📎`, {type, index, connected, linkInfo, ioSlot})

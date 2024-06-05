@@ -1,6 +1,7 @@
+from .base_node import BaseNode
 from crewai import Crew, Process
 
-class CrewNode:
+class CrewNode(BaseNode):
     def __init__(self):
         pass
 
@@ -17,7 +18,6 @@ class CrewNode:
     INPUT_IS_LIST = (True, True, False, False)
     RETURN_TYPES = ("STRING",)
     FUNCTION = "create_crew"
-    CATEGORY = "📎CrewAi"
 
     def create_crew(self, agents, tasks, process, topic):
         process_type = Process.sequential if process == "sequential" else Process.hierarchical
