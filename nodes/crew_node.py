@@ -10,10 +10,10 @@ class CrewNode(BaseNode):
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "tasks": ("CAI_TASK", {"default": []}),
+                "tasks": ("CREWAI_TASK", {"default": []}),
             },
             "optional": {
-                "agents": ("CAI_AGENT", {"forceInput": False, "default": []}),
+                "agents": ("CREWAI_AGENT", {"forceInput": False, "default": []}),
                 "topic": ("STRING", {
                     "forceInput": False, "multiline": True, "default": ""
                 }),

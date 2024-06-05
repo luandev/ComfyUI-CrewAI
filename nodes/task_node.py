@@ -11,18 +11,19 @@ class TaskNode(BaseNode):
         return {
             "required": {
                 "description": ("STRING", {
-                    "forceInput": True, "multiline": True, "default": ""
+                   "multiline": True, "default": ""
                 }),
             },
             "optional": {
                 "expected_output": ("STRING", {
-                    "forceInput": False, "multiline": True, "default": ""
+                    "multiline": True, "default": ""
                 }),
-                "agent": ("CAI_AGENT",),
+                "agent": ("CREWAI_AGENT",),
             }
         }
 
-    RETURN_TYPES = ("CAI_TASK",)
+    RETURN_TYPES = ("CREWAI_TASK",)
+    RETURN_NAMES = ("task",)
     FUNCTION = "create_task"
 
     def create_task(self, description, expected_output, agent):

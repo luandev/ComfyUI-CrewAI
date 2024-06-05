@@ -10,24 +10,25 @@ class AgentNode:
         return {
             "required": {
                 "role": ("STRING", {
-                    "forceInput": True, "multiline": True, "default": ""
+                    "multiline": True, "default": ""
                 }),
                 "goal": ("STRING", {
-                    "forceInput": True, "multiline": True, "default": ""
+                    "multiline": True, "default": ""
                 }),
                 "backstory": ("STRING", {
-                    "forceInput": True, "multiline": True, "default": ""
+                    "multiline": True, "default": ""
                 }),
             },
             "optional": {
-                "LLM": ("CAI_LLM",),
+                "LLM": ("CREWAI_LLM",),
                 "verbose": ("BOOL", {"default": False}),
                 "allow_delegation": ("BOOL", {"default": True}),
             },
         }
 
     OUTPUT_NODE = True
-    RETURN_TYPES = ("CAI_AGENT",)
+    RETURN_TYPES = ("CREWAI_AGENT",)
+    RETURN_NAMES = ("agent",)
     FUNCTION = "create_agent"
     CATEGORY = "📎CrewAi"
 

@@ -12,19 +12,18 @@ class LlmChatGpt(BaseNode):
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "api_key": ("STRING", {
-                    "forceInput": True,
-                    "default": "http://localhost:11434/v1"
-                }),
+                "api_key": ("STRING", {"default": ""}),
             },
             "optional": {
                 "model": ("STRING", {
-                    "forceInput": True, "default": "gpt-4o"
+                    "default": "gpt-4o"
                 }),
             }
         }
 
-    RETURN_TYPES = ("CAI_LLM",)
+    RETURN_TYPES = ("CREWAI_LLM",)
+    RETURN_NAMES = ("llm",)
+
     FUNCTION = "create_task"
 
     def create_task(self, model, api_key):

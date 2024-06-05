@@ -13,22 +13,22 @@ class LlmHuggingFace(BaseNode):
         return {
             "required": {
                 "model": ("STRING", {
-                    "forceInput": True, "default": "crewai-llama3"
+                    "default": "crewai-llama3"
                 }),
                 "base_url": ("STRING", {
-                    "forceInput": True,
                     "default": "http://localhost:11434/v1"
                 }),
             },
             "optional": {
                 "api_key": ("STRING", {
-                    "forceInput": True,
-                    "default": "http://localhost:11434/v1"
+                    "default": "..."
                 }),
             }
         }
 
-    RETURN_TYPES = ("CAI_LLM",)
+    RETURN_TYPES = ("CREWAI_LLM",)
+    RETURN_NAMES = ("llm",)
+
     FUNCTION = "create_task"
 
     def create_task(self, base_url, api_key, task, max_new_tokens):
