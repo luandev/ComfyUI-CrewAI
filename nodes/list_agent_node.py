@@ -9,4 +9,3 @@ class AgentList(BaseNode):
     OUTPUT_IS_LIST = (True,)
     RETURN_TYPES = ("AGENT",)
     FUNCTION = "create_list"
-
