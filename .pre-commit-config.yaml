@@ -1,7 +1,9 @@
 repos:
-  - repo: https://github.com/pycqa/flake8
-    rev: 3.9.2
+  - repo: local
     hooks:
       - id: flake8
-        args:
-          - --config=.flake8
+        name: Run flake8
+        entry: flake8
+        language: system
+        types: [python]
+        args: [--config=.flake8]
