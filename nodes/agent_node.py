@@ -1,5 +1,6 @@
 from crewai import Agent
 
+
 class AgentNode:
     def __init__(self):
         pass
@@ -8,13 +9,19 @@ class AgentNode:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "role": ("STRING", {"forceInput": True, "multiline": True, "default": ""}),
-                "goal": ("STRING", {"forceInput": True, "multiline": True, "default": ""}),
-                "backstory": ("STRING", {"forceInput": True, "multiline": True, "default": ""}),
+                "role": ("STRING", {
+                    "forceInput": True, "multiline": True, "default": ""
+                }),
+                "goal": ("STRING", {
+                    "forceInput": True, "multiline": True, "default": ""
+                }),
+                "backstory": ("STRING", {
+                    "forceInput": True, "multiline": True, "default": ""
+                }),
             },
             "optional": {
                 "verbose": ("BOOL", {"default": False}),
-                "allow_delegation": ("BOOL", { "default": True}),
+                "allow_delegation": ("BOOL", {"default": True}),
             },
         }
 
@@ -24,7 +31,6 @@ class AgentNode:
     CATEGORY = "📎CrewAi"
 
     def create_agent(self, role, goal, backstory, verbose=False, allow_delegation=True):
-       
         agent = Agent(
             role=role,
             goal=goal,
