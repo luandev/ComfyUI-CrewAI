@@ -1,3 +1,4 @@
 crewai>=0.5.0
 langchain-community>=0.0.20
 langchain-openai>=0.0.2.post1
+tokenizers>=0.19
