@@ -1,7 +1,6 @@
 from .base_node import BaseNode
 from langchain_openai import ChatOpenAI
 import os
-os.environ["OPENAI_API_KEY"] = "NA"
 
 
 class LlmOpenai(BaseNode):
@@ -21,7 +20,7 @@ class LlmOpenai(BaseNode):
             },
             "optional": {
                 "api_key": ("STRING", {
-                    "default": ""
+                    "default":  os.getenv("OPENAI_API_KEY")
                 }),
             }
         }

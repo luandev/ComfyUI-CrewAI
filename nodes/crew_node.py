@@ -31,7 +31,7 @@ class CrewNode(BaseNode):
         # Determine the process type
         isSequential: bool = process[0] == "sequential"
         process_type = Process.sequential if isSequential else Process.hierarchical
-
+        result = ""
         # Create the Crew instance
         crew = Crew(
             agents=agents,
@@ -41,6 +41,9 @@ class CrewNode(BaseNode):
         )
         print("\n\n📎", crew, "\n\n")
         # Kick off the process and capture the result
-        result = crew.kickoff(inputs={'topic': topic})
-        print("\n\n📎Crew AI - result", result)
-        return (result, crew.usage_metrics)
+        try:
+            result = crew.kickoff(inputs={'topic': topic})
+            print("\n\n📎Crew AI - result", result)
+        except IndexError as e:
+            print("Error during processing:", e)
+        return (result)

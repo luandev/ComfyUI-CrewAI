@@ -1,7 +1,6 @@
 from .base_node import BaseNode
 from langchain_openai import ChatOpenAI
 import os
-os.environ["OPENAI_API_KEY"] = "NA"
 
 
 class LlmChatGpt(BaseNode):
@@ -12,7 +11,7 @@ class LlmChatGpt(BaseNode):
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "api_key": ("STRING", {"default": ""}),
+                "api_key": ("STRING", {"default": os.getenv("OPENAI_API_KEY")}),
             },
             "optional": {
                 "model": ("STRING", {

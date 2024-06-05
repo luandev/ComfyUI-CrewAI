@@ -20,7 +20,7 @@ class AgentNode:
                 }),
             },
             "optional": {
-                "LLM": ("CREWAI_LLM",),
+                "llm": ("CREWAI_LLM",),
                 "verbose": ("BOOL", {"default": False}),
                 "allow_delegation": ("BOOL", {"default": True}),
             },

@@ -1,7 +1,6 @@
 from .base_node import BaseNode
 from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
 import os
-os.environ["OPENAI_API_KEY"] = "NA"
 
 
 class LlmHuggingFace(BaseNode):
@@ -21,7 +20,7 @@ class LlmHuggingFace(BaseNode):
             },
             "optional": {
                 "api_key": ("STRING", {
-                    "default": "..."
+                    "default": os.getenv("OPENAI_API_KEY")
                 }),
             }
         }
