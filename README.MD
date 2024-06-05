@@ -15,7 +15,7 @@ This project integrates CrewAI's multi-agent collaboration framework into the Co
 
 ## About ComfyUI
 
-[ComfyUI](https://github.com/comfyanonymous/ComfyUI) is an innovative and user-friendly interface designed to streamline the creation and management of AI workflows. Utilizing a drag-and-drop system, ComfyUI allows users to effortlessly design, visualize, and deploy complex multi-agent tasks without deep technical knowledge. It supports a wide range of custom nodes and models, making it highly versatile for various AI applications.
+[ComfyUI](https://github.com/comfyanonymous/ComfyUI) is The most powerful and modular stable diffusion GUI and backend. It also has an innovative and user-friendly interface designed to streamline the creation and management of image and video creation workflows. Utilizing a drag-and-drop system, ComfyUI allows users to effortlessly design, visualize, and iterate over complex multi-agent tasks without deep technical knowledge. It supports a wide range of custom nodes and models, making it highly versatile for various AI applications.
 
 ## About CrewAI
 
