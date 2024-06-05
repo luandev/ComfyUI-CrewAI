@@ -1,4 +1,6 @@
 # 📎ComfyUI-CrewAI 
+![View of the nodes](./docs/image.png)
+
 
 This project integrates CrewAI's multi-agent collaboration framework into the ComfyUI environment, combining the robust capabilities of CrewAI's role-based AI agent system with ComfyUI's intuitive drag-and-drop interface. The goal is to create a platform that simplifies the management and execution of complex AI tasks.
 
