@@ -1,6 +1,10 @@
 # 📎ComfyUI-CrewAI 
-![View of the nodes](./docs/image.png)
 
+
+![View of the nodes](./docs/image.png)
+<hr/>
+
+[![Build Status](https://img.shields.io/github/actions/workflow/status/luandev/ComfyUI-CrewAI/Flake8.yml?branch=main&label=Build&style=flat-square)](https://github.com/luandev/ComfyUI-CrewAI/actions/workflows/Flake8.yml)
 
 This project integrates CrewAI's multi-agent collaboration framework into the ComfyUI environment, combining the robust capabilities of CrewAI's role-based AI agent system with ComfyUI's intuitive drag-and-drop interface. The goal is to create a platform that simplifies the management and execution of complex AI tasks.
 
@@ -51,13 +55,25 @@ Integrating CrewAI with ComfyUI provides a powerful, user-friendly interface for
 **Manual Install**:
 1. Clone the repository into the custom_nodes directory:
     ```bash
-    git clone https://github.com/yourusername/ComfyUI-CrewAI.git
+    git clone https://github.com/luandev/ComfyUI-CrewAI.git
     ```
 2. Install the requirements (ensure your virtual environment is activated if using one):
     ```bash
     pip install -r requirements.txt
     ```
 
+## Linting and Code Quality
+To maintain code quality, we use `flake8` for linting. We use pre-commit hooks to lint the staged files before committing:
+
+1. **To run `pre-commit` manually**:
+    ```bash
+    pre-commit run --all-files 
+    ```
+
+2. **Run `flake8` manually**:
+    ```bash
+    flake8
+    ```
 ## Current Nodes
 - **Agent Node:** Defines an agent with a specific role and goal.
   - *Usage:* Customize the agent by setting attributes such as role, goal, backstory, and tools.
@@ -85,4 +101,4 @@ Special thanks to the developers of [ComfyUI](https://github.com/comfyanonymous/
 
 ---
 
-Feel free to suggest improvements or report issues [here](https://github.com/yourusername/ComfyUI-CrewAI/issues).
+Feel free to suggest improvements or report issues [here](https://github.com/luandev/ComfyUI-CrewAI/issues).
