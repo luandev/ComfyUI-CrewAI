@@ -50,7 +50,7 @@ Integrating CrewAI with ComfyUI provides a powerful, user-friendly interface for
 
 ## Installation 🛠️
 
-**Easy Install (Coming Soon)**: Use the ComfyUI Manager to automate the installation process.
+**Easy Install**: Use the ComfyUI Manager to automate the installation process.
 
 **Manual Install**:
 1. Clone the repository into the custom_nodes directory:
