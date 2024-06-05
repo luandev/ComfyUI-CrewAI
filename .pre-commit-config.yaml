@@ -1,6 +1,7 @@
 repos:
   - repo: https://github.com/pycqa/flake8
-    rev: 7.0.0  # or the latest stable version
+    rev: 3.9.2
     hooks:
       - id: flake8
-        args: [--max-line-length=88, --ignore=E203,E501,W503]  # optional arguments
+        args:
+          - --config=.flake8
