@@ -9,10 +9,12 @@ class CrewNode(BaseNode):
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "agents": ("AGENT", {"default": []}),
                 "tasks": ("TASK", {"default": []}),
-                "process": ("STRING", {"default": "sequential", "choices": ["sequential", "hierarchical"]}),
+            },
+            "optional": {
                 "topic": ("STRING", {"default": ""}),
+                "agents": ("AGENT", {"default": []}),
+                "process": ("STRING", {"default": "sequential", "choices": ["sequential", "hierarchical"]}),
             },
         }
     INPUT_IS_LIST = (True, True, False, False)

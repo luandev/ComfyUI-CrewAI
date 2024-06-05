@@ -11,6 +11,8 @@ class AgentNode:
                 "role": ("STRING", {"default": ""}),
                 "goal": ("STRING", {"default": ""}),
                 "backstory": ("STRING", {"default": ""}),
+            },
+            "optional": {
                 "verbose": ("BOOL", {"default": False}),
                 "allow_delegation": ("BOOL", {"default": False}),
             },

@@ -10,9 +10,11 @@ class TaskNode(BaseNode):
         return {
             "required": {
                 "description": ("STRING", {"default": ""}),
+            },
+            "optional": {
                 "expected_output": ("STRING", {"default": ""}),
                 "agent": ("AGENT",),
-            },
+            }
         }
 
     RETURN_TYPES = ("TASK",)
