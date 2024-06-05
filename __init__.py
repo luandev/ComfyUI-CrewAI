@@ -1,4 +1,6 @@
-from .nodes.textview_node import TextViewNode
+from .nodes.llm_chatGpt_node import LlmChatGpt
+from .nodes.llm_huggingface_node import LlmHuggingFace
+from .nodes.llm_openai_node import LlmOpenai
 from .nodes.agent_node import AgentNode
 from .nodes.task_node import TaskNode
 from .nodes.crew_node import CrewNode
@@ -11,7 +13,9 @@ NODE_CLASS_MAPPINGS = {
     "📎CrewAI Crew": CrewNode,
     "📎CrewAI Task List": TaskList,
     "📎CrewAI Agent List": AgentList,
-    "📎CrewAI View Text": TextViewNode,
+    "📎CrewAI LLM OpenAI": LlmOpenai,
+    "📎CrewAI LLM Hugging Face": LlmHuggingFace,
+    "📎CrewAI LLM Chat GPT": LlmChatGpt,
 }
 
 WEB_DIRECTORY = "./js"

@@ -10,13 +10,13 @@ class CrewNode(BaseNode):
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "tasks": ("TASK", {"default": []}),
+                "tasks": ("CAI_TASK", {"default": []}),
             },
             "optional": {
+                "agents": ("CAI_AGENT", {"forceInput": False, "default": []}),
                 "topic": ("STRING", {
                     "forceInput": False, "multiline": True, "default": ""
                 }),
-                "agents": ("AGENT", {"forceInput": False, "default": []}),
                 "process": ("STRING", {
                     "default": "sequential",
                     "choices": ["sequential", "hierarchical"]
@@ -39,6 +39,7 @@ class CrewNode(BaseNode):
             process=process_type,
             topic=topic,
         )
+        print("\n\n📎", crew, "\n\n")
         # Kick off the process and capture the result
         result = crew.kickoff(inputs={'topic': topic})
         print("\n\n📎Crew AI - result", result)

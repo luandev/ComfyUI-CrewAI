@@ -18,11 +18,11 @@ class TaskNode(BaseNode):
                 "expected_output": ("STRING", {
                     "forceInput": False, "multiline": True, "default": ""
                 }),
-                "agent": ("AGENT",),
+                "agent": ("CAI_AGENT",),
             }
         }
 
-    RETURN_TYPES = ("TASK",)
+    RETURN_TYPES = ("CAI_TASK",)
     FUNCTION = "create_task"
 
     def create_task(self, description, expected_output, agent):
