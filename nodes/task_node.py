@@ -1,6 +1,7 @@
 from .base_node import BaseNode
 from crewai import Task
 
+
 class TaskNode(BaseNode):
     def __init__(self):
         pass
@@ -9,7 +10,9 @@ class TaskNode(BaseNode):
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "description": ("STRING", {"forceInput": True, "multiline": True, "default": ""}),
+                "description": ("STRING", {
+                    "forceInput": True, "multiline": True, "default": ""
+                }),
             },
             "optional": {
                 "expected_output": ("STRING", {"forceInput": False, "multiline": True, "default": ""}),
