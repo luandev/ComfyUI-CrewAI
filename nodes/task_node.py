@@ -15,7 +15,9 @@ class TaskNode(BaseNode):
                 }),
             },
             "optional": {
-                "expected_output": ("STRING", {"forceInput": False, "multiline": True, "default": ""}),
+                "expected_output": ("STRING", {
+                    "forceInput": False, "multiline": True, "default": ""
+                }),
                 "agent": ("AGENT",),
             }
         }
@@ -30,4 +32,3 @@ class TaskNode(BaseNode):
             agent=agent
         )
         return (task,)
-

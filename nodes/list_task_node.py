@@ -1,5 +1,6 @@
 from .base_node import BaseNode
 
+
 class TaskList(BaseNode):
     @classmethod
     def INPUT_TYPES(s):
