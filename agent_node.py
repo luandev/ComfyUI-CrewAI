@@ -8,21 +8,22 @@ class AgentNode:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "role": ("STRING", {"default": ""}),
-                "goal": ("STRING", {"default": ""}),
-                "backstory": ("STRING", {"default": ""}),
+                "role": ("STRING", {"forceInput": True, "multiline": True, "default": ""}),
+                "goal": ("STRING", {"forceInput": True, "multiline": True, "default": ""}),
+                "backstory": ("STRING", {"forceInput": True, "multiline": True, "default": ""}),
             },
             "optional": {
                 "verbose": ("BOOL", {"default": False}),
-                "allow_delegation": ("BOOL", {"default": False}),
+                "allow_delegation": ("BOOL", { "default": True}),
             },
         }
 
+    OUTPUT_NODE = True
     RETURN_TYPES = ("AGENT",)
     FUNCTION = "create_agent"
     CATEGORY = "📎CrewAi"
 
-    def create_agent(self, role, goal, backstory, verbose, allow_delegation):
+    def create_agent(self, role, goal, backstory, verbose=False, allow_delegation=True):
        
         agent = Agent(
             role=role,

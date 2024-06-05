@@ -1,3 +1,4 @@
+from .textview_node import TextViewNode
 from .agent_node import AgentNode
 from .task_node import TaskNode
 from .crew_node import CrewNode
@@ -10,6 +11,7 @@ NODE_CLASS_MAPPINGS = {
     "📎CrewAI Crew": CrewNode,
     "📎CrewAI Task List": TaskList,
     "📎CrewAI Agent List": AgentList,
+    # "📎CrewAI View Text": TextViewNode, (WIP)
 }
 
 WEB_DIRECTORY = "./js"

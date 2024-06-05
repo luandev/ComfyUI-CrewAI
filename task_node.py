@@ -9,10 +9,10 @@ class TaskNode(BaseNode):
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "description": ("STRING", {"default": ""}),
+                "description": ("STRING", {"forceInput": True, "multiline": True, "default": ""}),
             },
             "optional": {
-                "expected_output": ("STRING", {"default": ""}),
+                "expected_output": ("STRING", {"forceInput": False, "multiline": True, "default": ""}),
                 "agent": ("AGENT",),
             }
         }
