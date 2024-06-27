@@ -10,6 +10,6 @@ Repository = "https://github.com/luandev/ComfyUI-CrewAI"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "crewai"
 DisplayName = "ComfyUI-CrewAI"
 Icon = ""
