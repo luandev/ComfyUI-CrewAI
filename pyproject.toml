@@ -12,4 +12,4 @@ Repository = "https://github.com/luandev/ComfyUI-CrewAI"
 [tool.comfy]
 PublisherId = "crewai"
 DisplayName = "ComfyUI-CrewAI"
-Icon = ""
+Icon = "https://github.com/luandev/ComfyUI-CrewAI/blob/main/docs/logo.jpeg?raw=true"
