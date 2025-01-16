@@ -1,0 +1,595 @@
+{
+  "last_node_id": 12,
+  "last_link_id": 15,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "KSampler",
+      "pos": [
+        -313.7508239746094,
+        -82.87843322753906
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 7
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 3
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        659625442810579,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 6,
+      "type": "VAEDecode",
+      "pos": [
+        75.20206451416016,
+        -82.24803161621094
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 6
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            15
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "id": 1,
+      "type": "📎CrewAI Crew",
+      "pos": [
+        -1194.2591552734375,
+        160.81700134277344
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "tasks",
+          "type": "CREWAI_TASK",
+          "link": 11
+        },
+        {
+          "name": "agents",
+          "type": "CREWAI_AGENT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "manager_agent",
+          "type": "CREWAI_AGENT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": [
+            2
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        false,
+        "",
+        true
+      ]
+    },
+    {
+      "id": 9,
+      "type": "📎CrewAI Agent",
+      "pos": [
+        -1651.8739013671875,
+        137.2232666015625
+      ],
+      "size": [
+        400,
+        224
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llm",
+          "type": "CREWAI_LLM",
+          "link": 14,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "agent",
+          "type": "CREWAI_AGENT",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "creative director",
+        "write meaningful prompts for dreamshaper_8 transformer model",
+        "",
+        true,
+        false
+      ]
+    },
+    {
+      "id": 8,
+      "type": "📎CrewAI Task",
+      "pos": [
+        -1195.406494140625,
+        -106.79907989501953
+      ],
+      "size": [
+        400,
+        222.89111328125
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "agent",
+          "type": "CREWAI_AGENT",
+          "link": 12,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "task",
+          "type": "CREWAI_TASK",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "create conditioning prompts about {topic} to achieve high quality images",
+        "positive and negative prompots"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "📎CrewAI LLM Chat GPT",
+      "pos": [
+        -1633.7421875,
+        -14.839204788208008
+      ],
+      "size": [
+        380.4031982421875,
+        86.90524291992188
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llm",
+          "type": "CREWAI_LLM",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "",
+        "gpt-4o"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -658.1320190429688,
+        90.22322845458984
+      ],
+      "size": [
+        210,
+        54
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 9
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -310.59881591796875,
+        232.9488983154297
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        512,
+        592,
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -700.7085571289062,
+        -126.64228057861328
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            7
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            9,
+            10
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "dreamshaper_8.safetensors"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -663.8362426757812,
+        219.0205841064453
+      ],
+      "size": [
+        210,
+        54
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 10
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 2,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 12,
+      "type": "PreviewImage",
+      "pos": [
+        355.54449462890625,
+        -99.3721694946289
+      ],
+      "size": [
+        599.1490478515625,
+        643.3244018554688
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "properties": {}
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      1,
+      "STRING"
+    ],
+    [
+      2,
+      1,
+      1,
+      3,
+      1,
+      "STRING"
+    ],
+    [
+      3,
+      2,
+      0,
+      4,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      4,
+      3,
+      0,
+      4,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      5,
+      0,
+      4,
+      3,
+      "LATENT"
+    ],
+    [
+      6,
+      4,
+      0,
+      6,
+      0,
+      "LATENT"
+    ],
+    [
+      7,
+      7,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
+    [
+      8,
+      7,
+      2,
+      6,
+      1,
+      "VAE"
+    ],
+    [
+      9,
+      7,
+      1,
+      2,
+      0,
+      "CLIP"
+    ],
+    [
+      10,
+      7,
+      1,
+      3,
+      0,
+      "CLIP"
+    ],
+    [
+      11,
+      8,
+      0,
+      1,
+      0,
+      "CREWAI_TASK"
+    ],
+    [
+      12,
+      9,
+      0,
+      8,
+      0,
+      "CREWAI_AGENT"
+    ],
+    [
+      14,
+      11,
+      0,
+      9,
+      0,
+      "CREWAI_LLM"
+    ],
+    [
+      15,
+      6,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "CrewAI",
+      "bounding": [
+        -1696.6895751953125,
+        -228.74110412597656,
+        954.2698364257812,
+        650.6428833007812
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6115909044841641,
+      "offset": [
+        1639.4652259603804,
+        456.73319744092123
+      ]
+    }
+  },
+  "version": 0.4
+}
