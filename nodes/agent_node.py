@@ -21,8 +21,8 @@ class AgentNode:
             },
             "optional": {
                 "llm": ("CREWAI_LLM",),
-                "verbose": ("BOOL", {"default": False}),
-                "allow_delegation": ("BOOL", {"default": True}),
+                "verbose": ("BOOLEAN", {"default": False}),
+                "allow_delegation": ("BOOLEAN", {"default": False}),
             },
         }
 
@@ -39,7 +39,7 @@ class AgentNode:
                     backstory,
                     llm=None,
                     verbose=False,
-                    allow_delegation=True,
+                    allow_delegation=False,
     ):
         agent_kwargs = {
             "role": role,
@@ -52,6 +52,7 @@ class AgentNode:
         if llm is not None:
             agent_kwargs["llm"] = llm
 
-        print("\n\n📎", agent_kwargs, "\n\n")
+        if verbose:
+            print("\n\n📎", agent_kwargs, "\n\n")
         agent = Agent(**agent_kwargs)
         return (agent,)

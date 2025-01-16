@@ -1,5 +1,11 @@
 from .base_node import BaseNode
 from crewai import Task
+from pydantic import BaseModel
+
+
+class PromptOutput(BaseModel):
+    positive_prompt: str
+    negative_prompt: str
 
 
 class TaskNode(BaseNode):
@@ -30,6 +36,7 @@ class TaskNode(BaseNode):
         task = Task(
             description=description,
             expected_output=expected_output,
+            output_json=PromptOutput,
             agent=agent
         )
         return (task,)

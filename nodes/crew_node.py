@@ -13,6 +13,7 @@ class CrewNode(BaseNode):
                 "tasks": ("CREWAI_TASK", {"default": []}),
             },
             "optional": {
+                "verbose": ("BOOLEAN", {"default": False}),
                 "agents": ("CREWAI_AGENT", {"forceInput": False, "default": []}),
                 "topic": ("STRING", {
                     "forceInput": False, "multiline": True, "default": ""
@@ -25,13 +26,15 @@ class CrewNode(BaseNode):
         }
     INPUT_IS_LIST = (True, True, False, False)
     RETURN_TYPES = ("STRING", "STRING")
+    RETURN_NAMES = ("postive", "negative")
     FUNCTION = "create_crew"
 
-    def create_crew(self, tasks, process, topic="", agents=[]):
+    def create_crew(self, tasks, process, topic="", agents=[], verbose=False):
         # Determine the process type
         isSequential: bool = process[0] == "sequential"
         process_type = Process.sequential if isSequential else Process.hierarchical
         result = ""
+        print("\n\n📎", verbose, "\n\n")
         # Create the Crew instance
         crew = Crew(
             agents=agents,
@@ -39,11 +42,21 @@ class CrewNode(BaseNode):
             process=process_type,
             topic=topic,
         )
-        print("\n\n📎", crew, "\n\n")
+
+        if verbose:
+            print("\n\n📎", crew, "\n\n")
+
         # Kick off the process and capture the result
         try:
             result = crew.kickoff(inputs={'topic': topic})
-            print("\n\n📎Crew AI - result", result)
+            positive_prompt = result["positive_prompt"]
+            negative_prompt = result["negative_prompt"]
+
+            if verbose:
+                print("Positive prompt:", positive_prompt)
+                print("Negative prompt:", negative_prompt)
+
         except IndexError as e:
             print("Error during processing:", e)
-        return (result)
+
+        return (positive_prompt, negative_prompt)
