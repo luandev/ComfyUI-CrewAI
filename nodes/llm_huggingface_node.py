@@ -1,5 +1,6 @@
 from .base_node import BaseNode
-from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
+from crewai import LLM
+
 import os
 
 
@@ -31,7 +32,7 @@ class LlmHuggingFace(BaseNode):
     FUNCTION = "create_task"
 
     def create_task(self, base_url, api_key, task, max_new_tokens):
-        llm = HuggingFaceEndpoint(
+        llm = LLM(
             endpoint_url=base_url,
             huggingfacehub_api_token=api_key,
             task=task,

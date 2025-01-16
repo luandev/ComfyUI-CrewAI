@@ -1,3 +1,4 @@
+from .nodes.llm_ollama_node import LlmOllama
 from .nodes.llm_chatGpt_node import LlmChatGpt
 from .nodes.llm_huggingface_node import LlmHuggingFace
 from .nodes.llm_openai_node import LlmOpenai
@@ -16,6 +17,7 @@ NODE_CLASS_MAPPINGS = {
     "📎CrewAI LLM OpenAI": LlmOpenai,
     "📎CrewAI LLM Hugging Face": LlmHuggingFace,
     "📎CrewAI LLM Chat GPT": LlmChatGpt,
+    "📎CrewAI LLM Ollama": LlmOllama,
 }
 
 WEB_DIRECTORY = "./js"

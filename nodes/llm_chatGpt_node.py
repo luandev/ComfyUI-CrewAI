@@ -1,5 +1,5 @@
 from .base_node import BaseNode
-from langchain_openai import ChatOpenAI
+from crewai import LLM
 import os
 
 
@@ -26,5 +26,5 @@ class LlmChatGpt(BaseNode):
     FUNCTION = "create_task"
 
     def create_task(self, model, api_key):
-        llm = ChatOpenAI(model=model, api_key=api_key)
+        llm = LLM(model=model, api_key=api_key)
         return (llm,)
