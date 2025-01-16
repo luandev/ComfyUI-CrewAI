@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-crewai"
 description = "ComfyUI-CrewAI aims to integrate Crew AI's multi-agent collaboration framework into the ComfyUI environment. By combining the strengths of Crew AI's role-based, collaborative AI agent system with ComfyUI's intuitive interface, we will create a robust platform for managing and executing complex AI tasks seamlessly"
-version = "1.0.1"
+version = "1.0.2"
 license = { file = "LICENSE" }
 dependencies = ["crewai>=0.5.0", "langchain-community>=0.0.20", "langchain-openai>=0.0.2.post1", "tokenizers>=0.19"]
 
