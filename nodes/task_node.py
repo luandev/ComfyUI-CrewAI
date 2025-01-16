@@ -24,7 +24,7 @@ class TaskNode(BaseNode):
                 "expected_output": ("STRING", {
                     "multiline": True, "default": ""
                 }),
-                "agent": ("CREWAI_AGENT",),
+                "agent": ("CREWAI_AGENT", {"forceInput": False}),
             }
         }
 
@@ -32,11 +32,17 @@ class TaskNode(BaseNode):
     RETURN_NAMES = ("task",)
     FUNCTION = "create_task"
 
-    def create_task(self, description, expected_output, agent):
-        task = Task(
-            description=description,
-            expected_output=expected_output,
-            output_json=PromptOutput,
-            agent=agent
-        )
+    def create_task(self, description, expected_output="", agent=None):
+        # Create the Task object, only setting the agent if provided
+        task_kwargs = {
+            "description": description,
+            "expected_output": expected_output,
+            "output_json": PromptOutput
+        }
+        if agent is not None:
+            task_kwargs["agent"] = agent
+
+        print("\n\n📎", task_kwargs, "\n\n")
+
+        task = Task(**task_kwargs)
         return (task,)

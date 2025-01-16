@@ -15,36 +15,51 @@ class CrewNode(BaseNode):
             "optional": {
                 "verbose": ("BOOLEAN", {"default": False}),
                 "agents": ("CREWAI_AGENT", {"forceInput": False, "default": []}),
+                "manager_agent": ("CREWAI_AGENT", {"forceInput": False, "default": []}),
                 "topic": ("STRING", {
                     "forceInput": False, "multiline": True, "default": ""
                 }),
-                "process": ("STRING", {
-                    "default": "sequential",
-                    "choices": ["sequential", "hierarchical"]
-                }),
+                "isSequential": ("BOOLEAN", {"default": True}),
             },
         }
     INPUT_IS_LIST = (True, True, False, False)
     RETURN_TYPES = ("STRING", "STRING")
-    RETURN_NAMES = ("postive", "negative")
+    RETURN_NAMES = ("positive", "negative")
     FUNCTION = "create_crew"
 
-    def create_crew(self, tasks, process, topic="", agents=[], verbose=False):
+    def create_crew(self,
+                    tasks=[],
+                    isSequential: bool = True,
+                    topic="", agents=[],
+                    verbose: bool = False,
+                    manager_agent=None):
         # Determine the process type
-        isSequential: bool = process[0] == "sequential"
-        process_type = Process.sequential if isSequential else Process.hierarchical
-        result = ""
-        print("\n\n📎", verbose, "\n\n")
-        # Create the Crew instance
-        crew = Crew(
-            agents=agents,
-            tasks=tasks,
-            process=process_type,
-            topic=topic,
-        )
+        process_type = Process.sequential if isSequential[0] else Process.hierarchical
 
-        if verbose:
-            print("\n\n📎", crew, "\n\n")
+        # Handle manager_agent input
+        if isinstance(manager_agent, list) and manager_agent:
+            manager_agent = manager_agent[0]  # Take the first element if it's a list
+        elif not manager_agent:
+            manager_agent = None  # Ensure it's None if empty or not provided
+
+        # Prepare arguments for the Crew instance
+        crew_kwargs = {
+            "agents": agents,
+            "tasks": tasks,
+            "process": process_type,
+            "topic": topic,
+            "verbose": verbose[0],
+        }
+
+        # Add manager_agent only if it's valid
+        if manager_agent:
+            crew_kwargs["manager_agent"] = manager_agent
+
+        if verbose[0]:
+            print("\n\n📎", crew_kwargs, "\n\n")
+
+        # Create the Crew instance
+        crew = Crew(**crew_kwargs)
 
         # Kick off the process and capture the result
         try:
@@ -52,7 +67,7 @@ class CrewNode(BaseNode):
             positive_prompt = result["positive_prompt"]
             negative_prompt = result["negative_prompt"]
 
-            if verbose:
+            if verbose[0]:
                 print("Positive prompt:", positive_prompt)
                 print("Negative prompt:", negative_prompt)
 
