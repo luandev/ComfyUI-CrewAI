@@ -4,6 +4,7 @@ Crafting high-quality prompts is essential for generating images or other conten
 
 Integrating CrewAI into ComfyUI allows users to automate and refine the prompt creation process using intelligent agents. CrewAI can generate, analyze, and iteratively improve text prompts based on user input or specific goals, streamlining the creative workflow.
 
+![View of the nodes](./docs/image.png)
 [Nodes Demo](https://youtu.be/OdcrsZLcCrU)
 <hr/>
 
