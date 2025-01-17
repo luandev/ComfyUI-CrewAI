@@ -1,0 +1,312 @@
+{
+  "last_node_id": 23,
+  "last_link_id": 22,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "📎CrewAI LLM Ollama",
+      "pos": [
+        -481.0332336425781,
+        -435.5079650878906
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llm",
+          "type": "CREWAI_LLM",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ollama/llama3.2:3b",
+        "http://localhost:11434"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "📎CrewAI Agent",
+      "pos": [
+        -147.3191375732422,
+        -433.9649353027344
+      ],
+      "size": [
+        400,
+        224
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llm",
+          "type": "CREWAI_LLM",
+          "link": 4,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "agent",
+          "type": "CREWAI_AGENT",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "Creative Director",
+        "Create cool images",
+        "",
+        true,
+        false
+      ]
+    },
+    {
+      "id": 3,
+      "type": "📎CrewAI Task",
+      "pos": [
+        278.6111145019531,
+        -434.6757507324219
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "agent",
+          "type": "CREWAI_AGENT",
+          "link": 3,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "task",
+          "type": "CREWAI_TASK",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "Create images about {topic} using prompts",
+        "Positive and negative prompts for conditioning a model"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "📎CrewAI Text",
+      "pos": [
+        1168.8687744140625,
+        -345.6724548339844
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 22,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "",
+        "A sad dog sitting alone in a dark room with a frown on its face",
+        "output",
+        "enabled",
+        "enabled"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "📎CrewAI Text",
+      "pos": [
+        1170.898681640625,
+        -625.8836669921875
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 20,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "",
+        "A happy dog running in a green field with a big smile on its face",
+        "output",
+        "enabled",
+        "enabled"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "📎CrewAI Crew",
+      "pos": [
+        716.1845092773438,
+        -433.09088134765625
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "tasks",
+          "type": "CREWAI_TASK",
+          "link": 2
+        },
+        {
+          "name": "agents",
+          "type": "CREWAI_AGENT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "manager_agent",
+          "type": "CREWAI_AGENT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": [
+            22
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        true,
+        "A happy dog",
+        true
+      ]
+    }
+  ],
+  "links": [
+    [
+      2,
+      3,
+      0,
+      1,
+      0,
+      "CREWAI_TASK"
+    ],
+    [
+      3,
+      4,
+      0,
+      3,
+      0,
+      "CREWAI_AGENT"
+    ],
+    [
+      4,
+      5,
+      0,
+      4,
+      0,
+      "CREWAI_LLM"
+    ],
+    [
+      20,
+      1,
+      0,
+      22,
+      0,
+      "STRING"
+    ],
+    [
+      22,
+      1,
+      1,
+      23,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.984973267580793,
+      "offset": [
+        631.1795913675138,
+        888.2631607603234
+      ]
+    },
+    "node_versions": {
+      "ComfyUI-CrewAI": "8b2fda591d4b4d9559adb573a58b8f437f0b978d"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}

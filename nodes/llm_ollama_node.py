@@ -11,7 +11,7 @@ class LlmOllama(BaseNode):
         return {
             "required": {
                 "model": ("STRING", {
-                    "default": "ollama/llama3:70b"
+                    "default": "ollama/llama3.2:3b"
                 }),
                 "base_url": ("STRING", {
                     "default": "http://localhost:11434"
