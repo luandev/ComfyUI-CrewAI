@@ -7,6 +7,7 @@ from .nodes.task_node import TaskNode
 from .nodes.crew_node import CrewNode
 from .nodes.list_task_node import TaskList
 from .nodes.list_agent_node import AgentList
+from .nodes.save_text_node import DisplayText
 
 NODE_CLASS_MAPPINGS = {
     "📎CrewAI Agent": AgentNode,
@@ -18,6 +19,7 @@ NODE_CLASS_MAPPINGS = {
     "📎CrewAI LLM Hugging Face": LlmHuggingFace,
     "📎CrewAI LLM Chat GPT": LlmChatGpt,
     "📎CrewAI LLM Ollama": LlmOllama,
+    "📎CrewAI Text": DisplayText,
 }
 
 WEB_DIRECTORY = "./js"
