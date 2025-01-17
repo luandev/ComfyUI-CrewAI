@@ -7,6 +7,12 @@ Integrating CrewAI into ComfyUI allows users to automate and refine the prompt c
 [![Watch the video](https://raw.githubusercontent.com/luandev/ComfyUI-CrewAI/main/docs/image.png)](https://raw.githubusercontent.com/luandev/ComfyUI-CrewAI/main/docs/demo.mp4)
 <hr/>
 
+<video width="320" height="240" controls>
+  <source src="https://raw.githubusercontent.com/luandev/ComfyUI-CrewAI/main/docs/demo.mp4" type="video/mp4">
+  <source src="./docs/demo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
 [![Build Status](https://img.shields.io/github/actions/workflow/status/luandev/ComfyUI-CrewAI/Flake8.yml?branch=main&label=Build&style=flat-square)](https://github.com/luandev/ComfyUI-CrewAI/actions/workflows/Flake8.yml)
 
 This project integrates CrewAI's multi-agent collaboration framework into the ComfyUI environment, combining the robust capabilities of CrewAI's role-based AI agent system with ComfyUI's intuitive drag-and-drop interface. The goal is to create a platform that simplifies the management and execution of complex AI tasks.
