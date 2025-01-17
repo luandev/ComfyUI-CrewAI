@@ -85,11 +85,7 @@ To maintain code quality, we use `flake8` for linting. We use pre-commit hooks t
   - *Usage:* Define the task description, expected output, and assign it to an agent.
 - **Crew Node:** Manages a group of agents and tasks, coordinating their execution.
   - *Usage:* Set up the crew with defined agents and tasks, and choose the process type (sequential or hierarchical).
-
-## Coming Soon
-- **LLM Node:** Supports custom language models, including local models via Ollama.
-- **Text Import Node**
-- **Text Export Node**
+- **Text Node:** Can display and safe text strings, good for debugging
 
 ## Contributing 🤝
 
